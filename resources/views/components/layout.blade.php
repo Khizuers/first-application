@@ -14,8 +14,7 @@
             <div class="text-2xl font-bold text-purple-400">BEEZHIRE</div>
             <nav class="space-x-6">
                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
             </nav>
         </div>
     </header>
@@ -33,7 +32,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 bg-opacity-90 shadow-inner mt-10">
         <div class="max-w-7xl mx-auto px-6 py-6 text-center text-gray-400">
-            &copy; {{ date('Y') }} MySite. All rights reserved.
+            &copy; {{ date('Y') }} BEEZHIRE. All rights reserved.
         </div>
     </footer>
 

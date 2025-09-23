@@ -1,7 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Job;
 
-Route::get('/', fn() => view('home'));
-Route::get('/about', fn() => view('about'));
-Route::get('/contact', fn() => view('contact'));
+// Homepage
+Route::get('/', function () {
+    return view('home');
+});
+
+// All Jobs
+Route::get('/jobs', function () {
+    return view('jobs', [
+        'jobs' => Job::all()
+    ]);
+});
+
+// Single Job - dynamic page
+Route::get('/jobs/{id}', function ($id) {
+    return view('job', [
+        'job' => Job::find($id)
+    ]);
+});
