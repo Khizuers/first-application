@@ -3,7 +3,13 @@
         Job
     </x-slot:heading>
 
+    <!-- Employer Name -->
+    <p class="text-sm text-gray-500">{{ $job->employer->name }}</p>
+
+    <!-- Job Title -->
     <h2 class="font-bold text-lg">{{ $job['title'] }}</h2>
+
+    <!-- Salary -->
     <p>
         This job pays {{ $job['salary'] }} per year.
     </p>
