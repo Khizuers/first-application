@@ -19,6 +19,11 @@ class Job extends Model
         'employer_id',
     ];
 
+    // Ensure salary is always treated as an integer
+    protected $casts = [
+        'salary' => 'integer',
+    ];
+
     /**
      * A Job belongs to one Employer
      */
@@ -34,9 +39,17 @@ class Job extends Model
     {
         return $this->belongsToMany(
             \App\Models\Tag::class, // Related model
-            'job_listing_tag',       // Pivot table name
-            'job_listing_id',        // Foreign key on pivot table for Job
-            'tag_id'                 // Foreign key on pivot table for Tag
+            'job_listing_tag',      // Pivot table name
+            'job_listing_id',       // Foreign key on pivot table for Job
+            'tag_id'                // Foreign key on pivot table for Tag
         );
+    }
+
+    /**
+     * Accessor: Format salary nicely (e.g., 50000 → $50,000)
+     */
+    public function getSalaryFormattedAttribute()
+    {
+        return '$' . number_format((int) $this->salary, 0);
     }
 }

@@ -17,9 +17,9 @@ class JobFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->jobTitle(), // Random job title
-            'salary' => fake()->randomElement(['$50,000 USD', '$90,000 USD', '$150,000 USD']),
-            'employer_id' => \App\Models\Employer::factory(), // Creates a new employer for each job
+            'title' => fake()->jobTitle(),
+            'salary' => fake()->numberBetween(30000, 150000), // random salary
+            'employer_id' => \App\Models\Employer::factory(),
         ];
     }
 }

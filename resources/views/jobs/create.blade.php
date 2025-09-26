@@ -23,7 +23,6 @@
                            @error('title') border-red-500 @else border-gray-600 @enderror 
                            focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200"
                 >
-                <!-- ✅ Show validation error -->
                 @error('title')
                     <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
                 @enderror
@@ -37,12 +36,11 @@
                     name="salary" 
                     id="salary" 
                     value="{{ old('salary') }}"
-                    placeholder="$50,000 per year"
+                    placeholder="$50,000"
                     class="w-full rounded-lg bg-gray-700 text-white py-3 px-4 placeholder-gray-400 border 
                            @error('salary') border-red-500 @else border-gray-600 @enderror 
                            focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200"
                 >
-                <!-- ✅ Show validation error -->
                 @error('salary')
                     <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
                 @enderror

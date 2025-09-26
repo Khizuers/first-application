@@ -8,9 +8,9 @@
         <p class="text-gray-400 text-center mb-8">Update the details of this job listing.</p>
 
         <!-- Update Form -->
-        <form method="POST" action="/jobs/{{ $job->id }}" class="space-y-6">
+        <form method="POST" action="{{ route('jobs.update', $job) }}" class="space-y-6">
             @csrf
-            @method('PATCH') <!-- ✅ Method Spoofing -->
+            @method('PATCH')
 
             <!-- Job Title -->
             <div>
@@ -38,7 +38,7 @@
                     name="salary" 
                     id="salary" 
                     value="{{ old('salary', $job->salary) }}"
-                    placeholder="$50,000 per year"
+                    placeholder="$50,000"
                     class="w-full rounded-lg bg-gray-700 text-white py-3 px-4 placeholder-gray-400 border 
                            @error('salary') border-red-500 @else border-gray-600 @enderror 
                            focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200"
@@ -59,7 +59,7 @@
                         class="px-6 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition duration-200">
                         Update Job
                     </button>
-                    <!-- ✅ Delete Button -->
+                    <!-- Delete Button -->
                     <button form="delete-form" type="submit" 
                         class="px-6 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white font-semibold transition duration-200">
                         Delete
@@ -69,7 +69,7 @@
         </form>
 
         <!-- Hidden Delete Form -->
-        <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
+        <form method="POST" action="{{ route('jobs.destroy', $job) }}" id="delete-form" class="hidden">
             @csrf
             @method('DELETE')
         </form>
