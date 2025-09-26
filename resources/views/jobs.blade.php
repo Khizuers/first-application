@@ -3,7 +3,7 @@
         Job Listings
     </x-slot:heading>
 
-    <ul>
+    <ul class="space-y-4">
         @foreach ($jobs as $job)
             <li class="mb-4">
                 <!-- Job Card -->
@@ -30,4 +30,10 @@
             </li>
         @endforeach
     </ul>
+
+    <!-- Pagination Links -->
+    <div class="mt-6">
+        {{ $jobs->links() }}
+    </div>
+    
 </x-layout>

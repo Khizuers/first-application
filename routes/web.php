@@ -8,16 +8,16 @@ Route::get('/', function () {
     return view('home');
 });
 
-// All Jobs
+// All Jobs (with eager loading + pagination)
 Route::get('/jobs', function () {
     return view('jobs', [
-        'jobs' => Job::all()
+        'jobs' => Job::with('employer')->paginate(10) // show 10 jobs per page
     ]);
 });
 
-// Single Job - dynamic page
+// Single Job (with eager loading)
 Route::get('/jobs/{id}', function ($id) {
     return view('job', [
-        'job' => Job::find($id)
+        'job' => Job::with('employer')->findOrFail($id) // fail if job not found
     ]);
 });
