@@ -12,6 +12,13 @@ class Job extends Model
     // Specify the actual table name
     protected $table = 'job_listings';
 
+    // Allow mass assignment for these fields
+    protected $fillable = [
+        'title',
+        'salary',
+        'employer_id',
+    ];
+
     /**
      * A Job belongs to one Employer
      */
